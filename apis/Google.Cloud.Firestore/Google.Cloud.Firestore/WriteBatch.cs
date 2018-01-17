@@ -93,7 +93,7 @@ namespace Google.Cloud.Firestore
         /// <param name="updates">The updates to perform on the document, keyed by the field path to update. Fields not present in this dictionary are not updated. Must not be null or empty.</param>
         /// <param name="precondition">Optional precondition for updating the document. May be null, which is equivalent to <see cref="Precondition.MustExist"/>.</param>
         /// <returns>This batch, for the purposes of method chaining.</returns>
-        public WriteBatch Update(DocumentReference documentReference, IDictionary<FieldPath, object> updates, Precondition precondition = null)
+        public WriteBatch Update<T>(DocumentReference documentReference, IDictionary<FieldPath,T> updates, Precondition precondition = null)
         {
             GaxPreconditions.CheckNotNull(documentReference, nameof(documentReference));
             GaxPreconditions.CheckNotNull(updates, nameof(updates));
